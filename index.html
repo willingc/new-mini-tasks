@@ -7,251 +7,236 @@
     <script src="http://eikes.github.com/facetedsearch/dependencies/jquery-1.6.2.js"></script>
     <script src="http://eikes.github.com/facetedsearch/dependencies/underscore-1.1.7.js"></script>
     <script src="http://eikes.github.com/facetedsearch/facetedsearch.js"></script>
+    <script src="data.cgi"></script>
     <script>
-      var example_items = [
- {
-  "Bug URL": "http://core.trac.wordpress.org/ticket/16989", 
-  "Description": "Clearly useful; semi difficult", 
-  "For": "", 
-  "Summary": "The core should accept an argument to get_media_items() for a MIME type", 
-  "Project": "WordPress", 
-  "Required skills": "PHP, know what a MIME type is, svn", 
-  "Community tools": "Trac, svn"
- }, 
- {
-  "Bug URL": "http://core.trac.wordpress.org/ticket/23200", 
-  "Description": "Requires making a color decision that will likely be overridden by WP devs...", 
-  "For": "", 
-  "Summary": "Give a:visited a color", 
-  "Project": "WordPress", 
-  "Required skills": "CSS", 
-  "Community tools": "Trac, svn"
- }, 
- {
-  "Bug URL": "http://core.trac.wordpress.org/ticket/9207", 
-  "Description": "It \"just\" requires refreshing the patch", 
-  "For": "", 
-  "Summary": "Fix SSL redirects for WordPress", 
-  "Project": "WordPress", 
-  "Required skills": "SSL on a server, PHP", 
-  "Community tools": "Trac, svn"
- }, 
- {
-  "Bug URL": "https://github.com/ushahidi/SwiftRiver/issues/334", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "Ushahidi / SwiftRiver", 
-  "Required skills": "PHP on one's own machine", 
-  "Community tools": "Github, git"
- }, 
- {
-  "Bug URL": "https://github.com/nltk/nltk/issues/352", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "Port (at least) one NLTK demo app to Python 3", 
-  "Project": "NLTK", 
-  "Required skills": "Python 3", 
-  "Community tools": "Github, git"
- }, 
- {
-  "Bug URL": "https://github.com/nltk/nltk/issues/310", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "Remove hard-coded string", 
-  "Project": "NLTK", 
-  "Required skills": "Python 3, Java, terminal", 
-  "Community tools": "Github, git"
- }, 
- {
-  "Bug URL": "https://github.com/nltk/nltk/issues/48", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "Test if the docs are still missing, and if so, say so", 
-  "Project": "NLTK", 
-  "Required skills": "Python, doctests, reading code", 
-  "Community tools": "Github, git"
- }, 
- {
-  "Bug URL": "http://support.freenas.org/ticket/2042", 
-  "Description": "This is a matter of testing first, rather than code first", 
-  "For": "Student interested in freenas", 
-  "Summary": "Try this, and see if there is a problem with the configuration files, and see if you can fix one of them", 
-  "Project": "FreeNAS", 
-  "Required skills": "FreeNAS, plus testing things", 
-  "Community tools": "Trac, svn"
- }, 
- {
-  "Bug URL": "http://support.freenas.org/ticket/2036", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "See if you can reproduce the problem", 
-  "Project": "FreeNAS", 
-  "Required skills": "FreeNAS, plus testing things", 
-  "Community tools": "Trac,svn"
- }, 
- {
-  "Bug URL": "https://github.com/psychopy/psychopy/issues/257", 
-  "Description": "", 
-  "For": "Perhaps a full-class demo, maybe at the end of the git tutorial!", 
-  "Summary": "Fix a link", 
-  "Project": "PsychoPy", 
-  "Required skills": "Text editing", 
-  "Community tools": "Github, git"
- }, 
- {
-  "Bug URL": "https://github.com/psychopy/psychopy/pull/163", 
-  "Description": "Fairly simple! A good demonstration of code guidelines", 
-  "For": "", 
-  "Summary": "Fix a submitted patch to fix a typo", 
-  "Project": "PsychoPy", 
-  "Required skills": "Python", 
-  "Community tools": "Github, git"
- }, 
- {
-  "Bug URL": "https://github.com/psychopy/psychopy/issues/248", 
-  "Description": " A large multi-person task, so pick whatever piece you want to work on.", 
-  "For": "", 
-  "Summary": "A variety of tasks: fixing typos and style inconsistencies, some coding. ", 
-  "Project": "PsychoPy", 
-  "Required skills": "Python, documentation", 
-  "Community tools": "Github, git"
- }, 
- {
-  "Bug URL": "https://support.freenas.org/ticket/1912", 
-  "Description": "Testing first, and see if the WordPress plugin can apply", 
-  "For": "", 
-  "Summary": "Test FreeNAS as if you are blind", 
-  "Project": "FreeNAS", 
-  "Required skills": "FreeNAS, plus testing things, plus Python+Django", 
-  "Community tools": "Trac, svn"
- }, 
- {
-  "Bug URL": "http://bugs.python.org/issue17135", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "Change the docs for \"imp\" so it is more useful to users of the module", 
-  "Project": "Python", 
-  "Required skills": "Python, documentation, rST", 
-  "Community tools": "Roundup, hg"
- }, 
- {
-  "Bug URL": "http://bugs.python.org/issue17203", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "Change the docs to document more behavior", 
-  "Project": "Python", 
-  "Required skills": "Python, documentation, unittest", 
-  "Community tools": "Roundup, hg"
- }, 
- {
-  "Bug URL": "http://code.google.com/p/sympy/issues/detail?id=3640", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "Fix the way 1/sqrt(2) displays", 
-  "Project": "SymPy (Python library for symbolic mathematics)", 
-  "Required skills": "Python, algebra", 
-  "Community tools": "Google Code, ??"
- }, 
- {
-  "Bug URL": "https://bugzilla.gnome.org/show_bug.cgi?id=693667", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "gnome-packagekit", 
-  "Required skills": "", 
-  "Community tools": ""
- }, 
- {
-  "Bug URL": "https://bugzilla.gnome.org/show_bug.cgi?id=685591", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "Evince", 
-  "Required skills": "C, GTK", 
-  "Community tools": ""
- }, 
- {
-  "Bug URL": "https://tahoe-lafs.org/trac/tahoe-lafs/ticket/1761", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "Tahoe-LAFS", 
-  "Required skills": "Tahoe-LAFS basics, willingness to read about cryptography", 
-  "Community tools": "Trac, ??"
- }, 
- {
-  "Bug URL": "https://bugzilla.gnome.org/show_bug.cgi?id=643375", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "The hardest part will be finding \"source code\" to these websites. The second hardest part is having Windows, and demonstrating that it works.", 
-  "Project": "GNOME Website", 
-  "Required skills": "", 
-  "Community tools": ""
- }, 
- {
-  "Bug URL": "https://bugzilla.wikimedia.org/show_bug.cgi?id=38932", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "MediaWiki extension for syntax highlighting", 
-  "Required skills": "", 
-  "Community tools": ""
- }, 
- {
-  "Bug URL": "https://bugs.kde.org/show_bug.cgi?id=300160", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "Krita (painting tool in KDE)", 
-  "Required skills": "", 
-  "Community tools": ""
- }, 
- {
-  "Bug URL": "https://bugzilla.wikimedia.org/show_bug.cgi?id=43868", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "MediaWiki", 
-  "Required skills": "", 
-  "Community tools": ""
- }, 
- {
-  "Bug URL": "https://bugs.kde.org/show_bug.cgi?id=313593", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "krita (painting tool in KDE)", 
-  "Required skills": "Qt, KDE, C++", 
-  "Community tools": "Bad default"
- }, 
- {
-  "Bug URL": "http://code.google.com/p/jmonkeyengine/issues/detail?id=577", 
-  "Description": "", 
-  "For": "", 
-  "Summary": "", 
-  "Project": "jMonkey Engine", 
-  "Required skills": "Java", 
-  "Community tools": "Bad default"
- }
-];
+      var example_itemz = [
+      {"suggestedmode": "group",
+      "url": "http://core.trac.wordpress.org/ticket/16989", 
+      "Description": "Clearly useful; semi difficult", 
+      "For": "", 
+      "Summary": "The core should accept an argument to get_media_items() for a MIME type", 
+      "Project": "WordPress", 
+      "Required skills": ["PHP", "MIME types", "svn"],
+      "Community tools": "Trac, svn",
+      }, 
+      {"suggestedmode": "individual",
+      "url": "http://core.trac.wordpress.org/ticket/9207", 
+      "Description": "It \"just\" requires refreshing the patch", 
+      "For": "", 
+      "Summary": "Fix SSL redirects for WordPress", 
+      "Project": "WordPress", 
+      "Required skills": ["SSL", "PHP"],
+      "Community tools": "Trac, svn"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://github.com/ushahidi/SwiftRiver/issues/334", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "Fix a typo in an email that the system sends out", 
+      "Project": "Ushahidi / SwiftRiver", 
+      "Required skills": ["PHP"],
+      "Community tools": "Github, git"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://github.com/nltk/nltk/issues/352", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "Port (at least) one NLTK demo app to Python 3", 
+      "Project": "NLTK", 
+      "Required skills": ["Python 3", "Python"],
+      "Community tools": "Github, git"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://github.com/nltk/nltk/issues/310", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "Remove hard-coded string", 
+      "Project": "NLTK", 
+      "Required skills": ["Python 3", "Java", "terminal", "Python"], 
+      "Community tools": "Github, git"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://github.com/nltk/nltk/issues/48", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "Test if the docs are still missing, and if so, say so", 
+      "Project": "NLTK", 
+      "Required skills": ["Python", "doctests", "reading code"],
+      "Community tools": "Github, git"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "http://support.freenas.org/ticket/2042", 
+      "Description": "This is a matter of testing first, rather than code first", 
+      "For": "Student interested in freenas", 
+      "Summary": "Try this, and see if there is a problem with the configuration files, and see if you can fix one of them", 
+      "Project": "FreeNAS", 
+      "Required skills": ["FreeNAS", "testing"],
+      "Community tools": "Trac, svn"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "http://support.freenas.org/ticket/2036", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "See if you can reproduce the problem", 
+      "Project": "FreeNAS", 
+      "Required skills": ["FreeNAS", "testing"],
+      "Community tools": "Trac,svn"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://github.com/psychopy/psychopy/pull/163", 
+      "Description": "Fairly simple! A good demonstration of code guidelines", 
+      "For": "", 
+      "Summary": "Fix a submitted patch to fix a typo", 
+      "Project": "PsychoPy", 
+      "Required skills": ["Python", "vectorizing"], 
+      "Community tools": "Github, git"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://github.com/psychopy/psychopy/issues/248", 
+      "Description": " A large multi-person task, so pick whatever piece you want to work on.", 
+      "For": "", 
+      "Summary": "A variety of tasks: fixing typos and style inconsistencies, some coding. ", 
+      "Project": "PsychoPy", 
+      "Required skills": ["Python", "documentation"],
+      "Community tools": "Github, git"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://support.freenas.org/ticket/1912", 
+      "Description": "Testing first, and see if the WordPress plugin can apply", 
+      "For": "", 
+      "Summary": "Test FreeNAS as if you are blind", 
+      "Project": "FreeNAS", 
+      "Required skills": ["FreeNAS", "testing", "Django", "Python"],
+      "Community tools": "Trac, svn"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "http://bugs.python.org/issue17135", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "Change the docs for \"imp\" so it is more useful to users of the module", 
+      "Project": "Python", 
+      "Required skills": ["Python", "documentation", "rST"],
+      "Community tools": "Roundup, hg"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "http://bugs.python.org/issue17203", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "Change the docs to document more behavior", 
+      "Project": "Python", 
+      "Required skills": ["Python", "documentation", "unittest",],
+      "Community tools": "Roundup, hg"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "http://code.google.com/p/sympy/issues/detail?id=3640", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "Fix the way 1/sqrt(2) displays", 
+      "Project": "SymPy (Python library for symbolic mathematics)", 
+      "Required skills": ["Python", "algebra"],
+      "Community tools": "Google Code, ??"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://bugzilla.gnome.org/show_bug.cgi?id=693667", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "gnome-packagekit", 
+      "Required skills": "", 
+      "Community tools": ""
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://bugzilla.gnome.org/show_bug.cgi?id=685591", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "Evince", 
+      "Required skills": ["C", "GTK"],
+      "Community tools": ""
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://tahoe-lafs.org/trac/tahoe-lafs/ticket/1761", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "Tahoe-LAFS", 
+      "Required skills": ["Tahoe-LAFS basics", "willingness to read about cryptography"],
+      "Community tools": "Trac, ??"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://bugzilla.gnome.org/show_bug.cgi?id=643375", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "The hardest part will be finding \"source code\" to these websites. The second hardest part is having Windows, and demonstrating that it works.", 
+      "Project": "GNOME Website", 
+      "Required skills": ["Windows"],
+      "Community tools": ""
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://bugzilla.wikimedia.org/show_bug.cgi?id=38932", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "MediaWiki extension for syntax highlighting", 
+      "Required skills": ["PHP"],
+      "Community tools": ""
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://bugs.kde.org/show_bug.cgi?id=300160", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "Krita (painting tool in KDE)", 
+      "Required skills": ["C++", "Qt", "KDE"], 
+      "Community tools": ""
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://bugzilla.wikimedia.org/show_bug.cgi?id=43868", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "MediaWiki", 
+      "Required skills": "", 
+      "Community tools": ""
+      }, 
+      {"suggestedmode": "individual",
+      "url": "https://bugs.kde.org/show_bug.cgi?id=313593", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "krita (painting tool in KDE)", 
+      "Required skills": ["Qt", "KDE", "C++"], 
+      "Community tools": "Bad default"
+      }, 
+      {"suggestedmode": "individual",
+      "url": "http://code.google.com/p/jmonkeyengine/issues/detail?id=577", 
+      "Description": "", 
+      "For": "", 
+      "Summary": "", 
+      "Project": "jMonkey Engine", 
+      "Required skills": "Java", 
+      "Community tools": "Bad default"
+      }
+      ];
       var item_template = 
-       '<div class="item">' +
-         '<img src="<%= obj.imageURL %>">' +
-         '<h4><%= obj.Project %></h4>' + 
-         '<p class="tags">' + 
-         '<% if (obj.Summary) {  %><%= obj.Summary %><% } %>' +
-         '<% if (obj.continent) {  %>, <%= obj.continent %><% } %>' +
-         '<% if (obj.language) {  %>, <%= obj.language %><% } %>' +
-         '</p>' +
-         '<p class="desc"><%= obj.description %></p>' +
-       '</div>';
+      '<div class="item">' +
+        '<img src="<%= obj.imageURL %>">' +
+        '<h4><%= obj.Project %></h4>' + 
+        '<p class="tags">' + 
+          '<% if (obj.continent) { %>, <%= obj.continent %><% } %>' +
+          '<% if (obj.language) {  %>, <%= obj.language %><% } %>' +
+          '</p>' +
+        '<p class="desc">' +
+	  '<% if (obj.Summary) {  %><%= obj.Summary %><% } %>' +
+	  '</p>' +
+	'<p class="link"><a href="<%= obj.url %>">Go</a></p>' +
+	'</div>';
       var settings = { 
-        items           : example_items,
+        items           : example_items.filter(function(item) { return !item['closed']}),
         facets          : { 
                             'Project'     : 'What Project',
-                            'continent'    : 'Which Continent',
-                            'language'     : 'Programming Language'
+                            'Required skills'    : 'What skills you need',
+                            'suggestedmode': 'Best for group/individual'
         },  
         resultSelector  : '#results',
         facetSelector   : '#facets',
