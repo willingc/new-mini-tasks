@@ -14,4 +14,10 @@ class Dev(object):
     def data(self):
         return data.get_data()
 
+    @cherrypy.expose(alias='handler.js')
+    @cherrypy.tools.response_headers(headers=[('Content-type', 'text/javascript')])
+    def handler(self):
+        return open('handler.js').read()
+
+
 cherrypy.quickstart(Dev())
