@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>mini-tasks!</title>
-
+<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css"></link>
 <style>
 .facetsearch
 {
@@ -132,18 +132,25 @@ tt
     background-color:#EEE;
     border:1px solid #CCC;
 }
+
+.link {
+    margin-bottom: 0.5em;
+}
 </style>
 </head>
 
 <body>
     <div id=facets></div>
     <div id=results></div>
-    <script src="http://eikes.github.com/facetedsearch/dependencies/jquery-1.6.2.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <script src="http://eikes.github.com/facetedsearch/dependencies/underscore-1.1.7.js"></script>
     <script src="http://eikes.github.com/facetedsearch/facetedsearch.js"></script>
     <script src="handler.js"></script>
     <script src="data.cgi"></script>
+    <script type="text/javascript">
+      $('body').on('click', 'a.go', null, handle);
+    </script>
     <script>
       var item_template = 
       '<div class="item">' +
@@ -156,7 +163,7 @@ tt
         '<p class="desc">' +
 	  '<% if (obj.Summary) {  %><%= obj.Summary %><% } %>' +
 	  '</p>' +
-	'<p class="link"><a onclick="handle(); return false;" href="<%= obj.url %>">Go</a></p>' +
+	'<p class="link"><a class="go" href="<%= obj.url %>">Go</a></p>' +
 	'</div>';
       var settings = { 
         items           : example_items.filter(function(item) { return !item['closed']}),
