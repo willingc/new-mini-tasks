@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -146,7 +147,7 @@ tt
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <script src="http://eikes.github.com/facetedsearch/dependencies/underscore-1.1.7.js"></script>
     <script src="http://eikes.github.com/facetedsearch/facetedsearch.js"></script>
-    <script src="handler.js"></script>
+    <script src="{% static "handler.js" %}"></script>
     <script src="data.cgi"></script>
     <script type="text/javascript">
       $('body').on('click', 'a.go', null, handle);
