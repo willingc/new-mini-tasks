@@ -1,0 +1,5 @@
+To get data.csv, run:
+
+wget 'http://linode.openhatch.org/~paulproteus/tmp/tasks/data.csv'
+
+-- Asheesh.
