@@ -15,15 +15,13 @@ var handle = function(e) {
         html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
     }
 
-
-    if (students) {
-        html += '<p>Currently being worked on by ' + students +
-            '<input type="text" id="new_name" value="Your name here"></input><input type="submit" value="Submit" id="claim_' + bugID + '" class="button"/>'
-            + '</p>';
+    if (Object.keys(students).length ==0) {
+        html += '<p>No one claimed this ticket yet! Claim it by typing your name below:</p><input type="text" id="new_name" value="Your name here"></input><input type="submit" value="Submit" id="claim_' + bugID + '" class="button"/>';
     }
 
-    $("#new_name").val("");
-    console.log("URL", targetLink, "bugID", bugID, "students", students, "new_name", $("#new_name").val() );
+    else {
+        html += '<p>Currently being worked on by ' + students + '</p>';
+    }
 
     html = html + '<p style="text-align: right;"><a class="deep_go"  href=' + targetLink + '"target="_blank"">View Open Task Here</a>';
 
@@ -35,6 +33,7 @@ var handle = function(e) {
 	});
 
     $dialog.dialog('open');
+
     $('#claim_' + bugID).on(
         'click',
         function(){
@@ -46,6 +45,7 @@ var handle = function(e) {
             );
         }
     );
+    $("#new_name").val("");
 
     // prevent the default action, e.g., following a link
     return false;
