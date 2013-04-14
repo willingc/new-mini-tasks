@@ -23,6 +23,8 @@ var handle = function(e) {
             + '</p>';
     }
 
+    // STill in progress
+
     html = html + '<p style="text-align: right;"><a class="deep_go"  href=' + targetLink + '"target="_blank"">View Open Task Here</a>';
 
     var $dialog = $('<div></div>')
