@@ -181,7 +181,31 @@ tt
       $(function(){
         $.facetelize(settings);
       });
+
+      function csrfSafeMethod(method) {
+          // these HTTP methods do not require CSRF protection
+          return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      $.ajaxSetup({
+          crossDomain: false,
+          beforeSend: function(xhr, settings) {
+              if (!csrfSafeMethod(settings.type)) {
+                  xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+              }
+          }
+      });
+
+      var claim = function(task_id, name) {
+          return jQuery.post(
+              '{% url "tasks-claim" %}',
+              {task: task_id,
+               name: name,
+              }
+          );
+      };
     </script>
+
 </body>
 
 </html>
