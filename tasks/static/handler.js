@@ -6,7 +6,7 @@ var handle = function(e) {
     // Find what we said about it
     var relevantItem = example_items.filter(function(item) { return item['url'] == targetLink});
     console.log(relevantItem);
-    var desc = relevantItem[0]['Description'];
+    var desc = relevantItem[0]['description'];
     var html = "";
 
     if (desc) {

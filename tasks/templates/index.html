@@ -162,16 +162,16 @@ tt
           '<% if (obj.language) {  %>, <%= obj.language %><% } %>' +
           '</p>' +
         '<p class="desc">' +
-	  '<% if (obj.Summary) {  %><%= obj.Summary %><% } %>' +
+	  '<% if (obj.summary) {  %><%= obj.summary %><% } %>' +
 	  '</p>' +
 	'<p class="link"><a class="go" href="<%= obj.url %>">Info</a></p>' +
 	'</div>';
       var settings = {
         items           : example_items.filter(function(item) { return !item['closed']}),
         facets          : {
-                            'Project'     : 'What Project',
-                            'Required skills'    : 'What skills you need',
-                            'suggestedmode': 'Best for group/individual'
+                            'project'     : 'What Project',
+                            'skills'    : 'What skills you need',
+                            'suggested_for': 'Best for group/individual'
         },
         resultSelector  : '#results',
         facetSelector   : '#facets',
