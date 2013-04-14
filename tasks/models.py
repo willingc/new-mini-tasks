@@ -24,6 +24,9 @@ class Task(models.Model):
     )
     recently_verified = models.BooleanField(default=False)
 
+    def __unicode__(self):
+        return "%s (%s)" % (self.summary, self.project)
+
     def to_dict(self):
         """Return a dict representation of a Task."""
 
@@ -46,3 +49,9 @@ class Student(models.Model):
 
     name = models.CharField(max_length=255)
     task = models.ForeignKey(Task)
+
+    def __unicode__(self):
+        return "%s working on %s" % (
+            self.name,
+            self.task,
+        )
