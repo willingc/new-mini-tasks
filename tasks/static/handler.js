@@ -6,11 +6,17 @@ var handle = function(e) {
     // Find what we said about it
     var relevantItem = example_items.filter(function(item) { return item['url'] == targetLink});
     console.log(relevantItem);
-    var desc = relevantItem[0]['description'];
-    var html = "";
+    var
+    desc = relevantItem[0]['description'],
+    students = relevantItem[0]['students'],
+    html = "";
 
     if (desc) {
-	html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
+        html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
+    }
+
+    if (students) {
+        html += '<p>Currently being worked on by ' + students + '</p>';
     }
 
     html = html + '<p style="text-align: right;"><a class="deep_go" href="' + targetLink + '">Go</a>';
