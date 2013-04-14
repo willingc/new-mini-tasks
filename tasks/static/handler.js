@@ -11,15 +11,19 @@ var handle = function(e) {
     students = relevantItem[0]['students'],
     html = "";
 
+
     if (desc) {
         html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
     }
 
+
     if (students) {
-        html += '<p>Currently being worked on by ' + students + '</p>';
+        html += '<p>Currently being worked on by ' + students + 
+            '<input type="text" id="small_box" value="Your name here"></input><input type="submit" value="Submit" id="new_name" class="button"/>'
+            + '</p>';
     }
 
-    html = html + '<p style="text-align: right;"><a class="deep_go" href="' + targetLink + '">Go</a>';
+    html = html + '<p style="text-align: right;"><a class="deep_go"  href=' + targetLink + '"target="_blank"">View Open Task Here</a>';
 
     var $dialog = $('<div></div>')
 	.html(html)
