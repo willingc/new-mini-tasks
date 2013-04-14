@@ -192,7 +192,7 @@ tt
       function updateSettings(items) {
       window.example_items = items;
       var settings = {
-        items           : window.example_items.filter(function(item) { return !item['closed']}),
+        items           : items,
         facets          : {
                             'project'     : 'What Project',
                             'skills'    : 'What skills you need',
