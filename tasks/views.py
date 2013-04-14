@@ -26,8 +26,8 @@ class TaskData(View):
         ]
 
         return HttpResponse(
-            "var example_items = %s;\n" % json.dumps(task_data),
-            content_type='text/javascript',
+            json.dumps(task_data),
+            content_type='application/json',
         )
 
 

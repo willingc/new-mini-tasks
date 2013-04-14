@@ -148,7 +148,6 @@ tt
     <script src="http://eikes.github.com/facetedsearch/dependencies/underscore-1.1.7.js"></script>
     <script src="http://eikes.github.com/facetedsearch/facetedsearch.js"></script>
     <script src="{% static "handler.js" %}"></script>
-    <script src="{% url "tasks-data" %}"></script>
     <script type="text/javascript">
       $('body').on('click', 'a.go', null, handle);
     </script>
@@ -166,8 +165,34 @@ tt
 	  '</p>' +
 	'<p class="link"><a class="go" href="<%= obj.url %>">Info</a></p>' +
 	'</div>';
+
+      function csrfSafeMethod(method) {
+          // these HTTP methods do not require CSRF protection
+          return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      $.ajaxSetup({
+           crossDomain: false,
+           beforeSend: function(xhr, settings) {
+               if (!csrfSafeMethod(settings.type)) {
+                   xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+               }
+           }
+      });
+      var claim = function(task_id, name) {
+          return jQuery.post(
+              '{% url "tasks-claim" %}',
+              {task: task_id,
+               name: name,
+              }
+          );
+      };
+
+
+      function updateSettings(items) {
+      window.example_items = items;
       var settings = {
-        items           : example_items.filter(function(item) { return !item['closed']}),
+        items           : window.example_items.filter(function(item) { return !item['closed']}),
         facets          : {
                             'project'     : 'What Project',
                             'skills'    : 'What skills you need',
@@ -181,29 +206,10 @@ tt
       $(function(){
         $.facetelize(settings);
       });
-
-      function csrfSafeMethod(method) {
-          // these HTTP methods do not require CSRF protection
-          return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
       }
 
-      $.ajaxSetup({
-          crossDomain: false,
-          beforeSend: function(xhr, settings) {
-              if (!csrfSafeMethod(settings.type)) {
-                  xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
-              }
-          }
-      });
+      $.getJSON('/tasks/', updateSettings);
 
-      var claim = function(task_id, name) {
-          return jQuery.post(
-              '{% url "tasks-claim" %}',
-              {task: task_id,
-               name: name,
-              }
-          );
-      };
     </script>
 
 </body>
