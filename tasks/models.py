@@ -1,3 +1,4 @@
+import string
 from django.db import models
 
 
@@ -22,6 +23,23 @@ class Task(models.Model):
         choices=MODE_CHOICES,
     )
     recently_verified = models.BooleanField(default=False)
+
+    def to_dict(self):
+        """Return a dict representation of a Task."""
+
+        result = {}
+        for field in self._meta.local_fields:
+            result[field.name] = getattr(self, field.name)
+
+        # post-process skills
+        result['skils'] = map(string.strip, result['skills'].split(','))
+
+        # add any students
+        result['students'] = list(
+            self.student_set.all().values_list('name', flat=True)
+        )
+
+        return result
 
 
 class Student(models.Model):
