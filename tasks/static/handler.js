@@ -2,8 +2,6 @@ var handle = function(e) {
     // Find the relevant link
     var targetLink = e.currentTarget.href;
 
-    console.log(targetLink);
-
     // Find what we said about it
     var relevantItem = example_items.filter(function(item) { return item['url'] == targetLink});
     console.log(relevantItem);
@@ -13,8 +11,6 @@ var handle = function(e) {
     bugID = relevantItem[0]['id'],
     html = "";
 
-    console.log(bugID, students);
-    
     if (desc) {
         html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
     }
@@ -24,12 +20,11 @@ var handle = function(e) {
         html += '<p>Currently being worked on by ' + students + 
             '<input type="text" id="new_name" value="Your name here"></input><input type="submit" value="Submit" id="claim_' + bugID + '" class="button"/>'
             + '</p>';
-
     }
 
     // STill in progress
-
-    $('#claim_' + bugID).on('click', function(){ claim(bugID, $("#new_name").val() ) });
+    $("#new_name").val("");
+    console.log("URL", targetLink, "bugID", bugID, "students", students, "new_name", $("#new_name").val() );
 
     html = html + '<p style="text-align: right;"><a class="deep_go"  href=' + targetLink + '"target="_blank"">View Open Task Here</a>';
 
@@ -41,6 +36,9 @@ var handle = function(e) {
 	});
 
     $dialog.dialog('open');
+    $('#claim_' + bugID).on('click', function(){ claim(bugID, $("#new_name").val() ) });
     // prevent the default action, e.g., following a link
     return false;
+
+    
 };
