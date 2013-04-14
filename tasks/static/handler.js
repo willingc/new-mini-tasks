@@ -15,13 +15,12 @@ var handle = function(e) {
         html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
     }
 
-
-    if (students) {
-        html += '<p>Currently being worked on by ' + students + '</p>';
+    if (Object.keys(students).length ==0) {
+        html += '<p>No one claimed this ticket yet! Claim it by typing your name below:</p><input type="text" id="new_name" value="Your name here"></input><input type="submit" value="Submit" id="claim_' + bugID + '" class="button"/>';
     }
 
-    else {
-        html += '<p>No one claimed this ticket yet!></p><input type="text" id="new_name" value="Your name here"></input><input type="submit" value="Submit" id="claim_' + bugID + '" class="button"/>';
+    else { 
+        html += '<p>Currently being worked on by ' + students + '</p>';
     }
 
     // STill in progress
@@ -37,7 +36,7 @@ var handle = function(e) {
 
     $dialog.dialog('open');
     $('#claim_' + bugID).on('click', function(){ claim(bugID, $("#new_name").val() ) });
-    console.log("URL", targetLink, "bugID", bugID, "students", students, "new_name");
+    console.log("URL", targetLink, "bugID", bugID, "students", Object.keys(students).length, "new_name");
     console.log($("#new_name").val()); 
     $("#new_name").val("");
     // prevent the default action, e.g., following a link
