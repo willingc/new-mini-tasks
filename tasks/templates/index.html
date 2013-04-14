@@ -183,25 +183,32 @@ tt
           return jQuery.post(
               '{% url "tasks-claim" %}',
               {task: task_id,
-               name: name,
+               name: name
               }
           );
       };
 
 
       function updateSettings(items) {
-      window.example_items = items;
+      window.example_items = items.map(
+            function(task) {
+                task.has_students = task.students.length > 0 ? "Yes" : "No";
+                return task;
+            }
+      );
+
       var settings = {
-        items           : items,
+        items           : window.example_items,
         facets          : {
                             'project'     : 'What Project',
                             'skills'    : 'What skills you need',
-                            'suggested_for': 'Best for group/individual'
+                            'suggested_for': 'Best for group/individual',
+                            'has_students': 'Currently being worked on'
         },
         resultSelector  : '#results',
         facetSelector   : '#facets',
         resultTemplate  : item_template,
-        orderByOptions  : {'firstname': 'First name', 'lastname': 'Last name', 'category': 'Category', 'RANDOM': 'Random'}
+        orderByOptions  : {}
       }
       $(function(){
         $.facetelize(settings);
