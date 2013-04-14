@@ -63,6 +63,10 @@ You can import a CSV file using the ``importtasks`` manage command::
   (new-mini-tasks)$ python manage.py importtasks tasks.csv
 
 This assumes the CSV comes from Asheesh's Google Doc. We may want to
-improve that at some point.
+improve that at some point. To get that sample data, run::
+
+  wget 'http://linode.openhatch.org/~paulproteus/tmp/tasks/data.csv'
+
+
 
 .. _virtualenv: http://www.virtualenv.org/
