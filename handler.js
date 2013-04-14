@@ -9,11 +9,30 @@ var handle = function(e) {
     var desc = relevantItem[0]['Description'];
     var html = "";
 
+    console.log(typeof(students), students);
+
+    // if (students ===[]) {
+
+    //     console.log("empty object!");
+    // } 
+
+
     if (desc) {
+<<<<<<< Updated upstream:handler.js
 	html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
+=======
+        html = '<p>Notes by event organizers:</p><blockquote>' + desc + 
+        '</blockquote>';
     }
 
-    html = html + '<p style="text-align: right;"><a class="deep_go" href="' + targetLink + '">Go</a>';
+    if (students) {
+        html += '<p>Currently being worked on by ' + students + 
+            '<input type="text" id="small_box" value="Your name here"></input><input type="submit" value="Submit" id="new_name" class="button"/>'
+            + '</p>';
+>>>>>>> Stashed changes:tasks/static/handler.js
+    }
+
+    html = html + '<p style="text-align: right;"><a class="deep_go"  href=' + targetLink + '"target="_blank"">View Open Task Here</a>';
 
     var $dialog = $('<div></div>')
 	.html(html)
