@@ -19,4 +19,6 @@ urlpatterns = patterns('',
     url(r'^$', tasks.views.TaskIndex.as_view()),
     url(r'^tasks/$', tasks.views.TaskData.as_view(),
         name='tasks-data'),
+    url(r'^claim/$', tasks.views.ClaimTask.as_view(),
+        name='tasks-claim'),
 )
