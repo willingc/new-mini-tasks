@@ -148,7 +148,7 @@ tt
     <script src="http://eikes.github.com/facetedsearch/dependencies/underscore-1.1.7.js"></script>
     <script src="http://eikes.github.com/facetedsearch/facetedsearch.js"></script>
     <script src="{% static "handler.js" %}"></script>
-    <script src="data.cgi"></script>
+    <script src="{% url "tasks-data" %}"></script>
     <script type="text/javascript">
       $('body').on('click', 'a.go', null, handle);
     </script>
