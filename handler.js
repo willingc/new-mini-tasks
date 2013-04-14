@@ -17,10 +17,21 @@ var handle = function(e) {
     // } 
 
 
+    console.log(typeof(students), students);
+
+    // if (students ===[]) {
+
+    //     console.log("empty object!");
+    // } 
+
+
     if (desc) {
+<<<<<<< Updated upstream:handler.js
 <<<<<<< Updated upstream:handler.js
 	html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
 =======
+=======
+>>>>>>> Stashed changes:tasks/static/handler.js
         html = '<p>Notes by event organizers:</p><blockquote>' + desc + 
         '</blockquote>';
     }
@@ -29,6 +40,9 @@ var handle = function(e) {
         html += '<p>Currently being worked on by ' + students + 
             '<input type="text" id="small_box" value="Your name here"></input><input type="submit" value="Submit" id="new_name" class="button"/>'
             + '</p>';
+<<<<<<< Updated upstream:handler.js
+>>>>>>> Stashed changes:tasks/static/handler.js
+=======
 >>>>>>> Stashed changes:tasks/static/handler.js
     }
 
