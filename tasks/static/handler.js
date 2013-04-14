@@ -17,12 +17,11 @@ var handle = function(e) {
 
 
     if (students) {
-        html += '<p>Currently being worked on by ' + students + 
+        html += '<p>Currently being worked on by ' + students +
             '<input type="text" id="new_name" value="Your name here"></input><input type="submit" value="Submit" id="claim_' + bugID + '" class="button"/>'
             + '</p>';
     }
 
-    // STill in progress
     $("#new_name").val("");
     console.log("URL", targetLink, "bugID", bugID, "students", students, "new_name", $("#new_name").val() );
 
@@ -36,9 +35,18 @@ var handle = function(e) {
 	});
 
     $dialog.dialog('open');
-    $('#claim_' + bugID).on('click', function(){ claim(bugID, $("#new_name").val() ) });
+    $('#claim_' + bugID).on(
+        'click',
+        function(){
+            $dialog.dialog('close');
+            claim(bugID, $("#new_name").val()).done(
+                function(data, status, jqxhr) {
+                    $.getJSON('/tasks/', updateSettings);
+                }
+            );
+        }
+    );
+
     // prevent the default action, e.g., following a link
     return false;
-
-    
 };
