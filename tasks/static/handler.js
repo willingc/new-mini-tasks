@@ -23,7 +23,7 @@ var handle = function(e) {
         html += '<p>Currently being worked on by ' + students + '</p>';
     }
 
-    html = html + '<p style="text-align: right;"><a class="deep_go"  href=' + targetLink + '"target="_blank"">View Open Task Here</a>';
+    html = html + '<p style="text-align: right;"><a class="deep_go"  href="' + targetLink + '" target="_blank"">View Open Task Here</a>';
 
     var $dialog = $('<div></div>')
 	.html(html)
