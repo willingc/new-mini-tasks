@@ -14,6 +14,7 @@ class Command(BaseCommand):
             Task.objects.create(
                 project=task['Project'],
                 url=task['url'],
+                item_id=task['itemID'],
                 skills=task['Required skills'],
                 community_tools=task['Community tools'],
                 project_area=task['Project Area'],

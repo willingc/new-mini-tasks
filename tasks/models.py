@@ -10,6 +10,7 @@ MODE_CHOICES = (
 
 class Task(models.Model):
     project = models.CharField(max_length=100)
+    item_id = models.CharField(max_length=100)
     url = models.URLField()
     skills = models.CharField(max_length=255)
     community_tools = models.CharField(max_length=255)
