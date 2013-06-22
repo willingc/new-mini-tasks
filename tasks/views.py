@@ -1,4 +1,7 @@
 import json
+import urllib2
+import StringIO
+import csv
 from django.http import HttpResponse
 from django.views.generic import (
     FormView,
@@ -8,6 +11,7 @@ from django.views.generic import (
 
 import tasks.forms
 import tasks.models
+import tasks.management.commands.importtasks
 
 
 class TaskIndex(TemplateView):
@@ -57,3 +61,22 @@ class ClaimTask(FormView):
             }),
             content_type='application/json',
         )
+
+
+class RefreshTaskData(View):
+    def get(self, request, *args, **kwargs):
+        ### Download CSV
+        CSV_URL = 'https://docs.google.com/spreadsheet/ccc?key=0AoHP1ey91UqPdC1EUFV4aXBETmY3bFBzTFhpdG1ISEE&output=csv'
+        import requests
+        response = requests.get(CSV_URL)
+        csv_data = response.text
+        dr = csv.DictReader(StringIO.StringIO(csv_data))
+
+        ### Assuming we actually got the data, delete all tasks currently
+        tasks.models.Task.objects.all().delete()
+
+        ### Load the new ones in
+        tasks.management.commands.importtasks.Command()._handle_task_file(dr)
+
+        ### Exit successfully.
+        return HttpResponse("Refreshed task data.")

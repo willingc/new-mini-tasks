@@ -29,6 +29,8 @@ urlpatterns = patterns('',
         name='tasks-claim'),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT}),
+    url(r'^secret-refresh-tasks/$', tasks.views.RefreshTaskData.as_view(),
+        name='secret-refresh-tasks'),
 )
 
 

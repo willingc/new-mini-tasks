@@ -10,6 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         task_file = csv.DictReader(open(args[0]))
 
+    def _handle_task_file(self, task_file):
         for task in task_file:
             Task.objects.create(
                 project=task['Project'],
