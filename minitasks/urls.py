@@ -1,9 +1,17 @@
 from django.conf.urls import patterns, include, url
+import os.path
 
 import tasks.views
 
+from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
+
+STATIC_PATH = os.path.abspath(os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), '../tasks/static'))
+
+if not os.path.exists(STATIC_PATH):
+    raise ValueError(STATIC_PATH)
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,4 +27,15 @@ urlpatterns = patterns('',
         name='tasks-data'),
     url(r'^claim/$', tasks.views.ClaimTask.as_view(),
         name='tasks-claim'),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT}),
 )
+
+
+### Attempt 1:
+
+if settings.DEBUG:
+    urlpatterns += patterns('django.contrib.staticfiles.views',
+        url(r'^static/(?P<path>.*)$', 'serve'),
+    )
+
