@@ -1,4 +1,5 @@
 # Django settings for minitasks project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +13,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'minitasks.db',
+        'NAME': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'minitasks.db'),
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
