@@ -190,12 +190,7 @@ tt
 
 
       function updateSettings(items) {
-      window.example_items = items.map(
-            function(task) {
-                task.has_students = task.students.length > 0 ? "Yes" : "No";
-                return task;
-            }
-      );
+      window.example_items = items;
 
       var settings = {
         items           : window.example_items,
