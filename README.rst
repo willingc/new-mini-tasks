@@ -44,6 +44,29 @@ Now you can install the dependencies::
   Successfully installed Django
   Cleaning up...
 
+Now you can set up the database::
+
+  (new-mini-tasks)$ python manage.py syncdb --noinput
+  Creating tables ...
+  Creating table auth_permission
+  Creating table auth_group_permissions
+  Creating table auth_group
+  Creating table auth_user_user_permissions
+  Creating table auth_user_groups
+  Creating table auth_user
+  Creating table django_content_type
+  Creating table django_session
+  Creating table django_site
+  Creating table django_admin_log
+  Creating table tasks_task
+  Creating table tasks_student
+  Installing custom SQL ...
+  Installing indexes ...
+  Installed 0 object(s) from 0 fixture(s)
+  (new-mini-tasks)$
+
+Yay!
+
 Now you can run the application::
 
   (new-mini-tasks)$ python manage.py runserver
