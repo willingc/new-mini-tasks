@@ -1,7 +1,7 @@
 import json
 import urllib2
 import StringIO
-import csv
+import unicodecsv
 from django.http import HttpResponse
 from django.views.generic import (
     FormView,
@@ -70,7 +70,7 @@ class RefreshTaskData(View):
         import requests
         response = requests.get(CSV_URL)
         csv_data = response.text
-        dr = csv.DictReader(StringIO.StringIO(csv_data))
+        dr = unicodecsv.DictReader(StringIO.StringIO(csv_data), encoding='utf-8')
 
         ### Assuming we actually got the data, delete all tasks currently
         tasks.models.Task.objects.all().delete()
