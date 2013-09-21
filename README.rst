@@ -60,7 +60,7 @@ Importing Data
 
 You can import a CSV file using the ``importtasks`` manage command::
 
-  (new-mini-tasks)$ python manage.py importtasks tasks.csv
+  (new-mini-tasks)$ python manage.py importtasks data.csv
 
 This assumes the CSV comes from Asheesh's Google Doc. We may want to
 improve that at some point. To get that sample data, run::
