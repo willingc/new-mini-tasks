@@ -2,6 +2,9 @@
 import os
 import sys
 
+import vendor
+vendor.vendorify()
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "minitasks.settings")
 
