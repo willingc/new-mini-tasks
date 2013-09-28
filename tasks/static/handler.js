@@ -9,10 +9,15 @@ var handle = function(e) {
     desc = relevantItem[0]['description'],
     students = relevantItem[0]['students'],
     bugID = relevantItem[0]['id'],
+    mentor = relevantItem[0]['mentor'],
     html = "";
 
     if (desc) {
         html = '<p>Notes by event organizers:</p><blockquote>' + desc + '</blockquote>';
+    }
+
+    if (mentor) {
+	html = html + '<p>Mentor: ' + mentor + '</p>';
     }
 
     html = html + '<p style="text-align: right;"><a class="deep_go"  href="' + targetLink + '" target="_blank"">View Open Task Here</a>';

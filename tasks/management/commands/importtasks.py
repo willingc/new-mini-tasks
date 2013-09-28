@@ -23,6 +23,7 @@ class Command(BaseCommand):
                 summary=task['Summary'],
                 description=task['Description'],
                 suggested_for=task['For'],
+                mentor=task['Mentor'],
                 env_difficulty=task['Environment setup difficulty'],
                 closed=bool(task['closed'].strip()),
                 suggested_mode=task['suggestedmode'],
