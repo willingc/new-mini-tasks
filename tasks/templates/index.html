@@ -195,6 +195,34 @@ tt
 
 
       function updateSettings(items) {
+      // project_area
+      for (var i = 0 ; i < items.length; i++) {
+          var item = items[i];
+          console.log(item);
+          item.project_area = item.project_area.split(",");
+          console.log(item.project_area);
+          for (var j = 0 ; j < item.project_area.length; j++) {
+              var project_area = item.project_area[j];
+              project_area = project_area.replace(/(^\s+|\s+$)/g, '');
+              item.project_area[j] = project_area;
+          }
+          console.log(item);
+      }
+
+      // skills
+      for (var i = 0 ; i < items.length; i++) {
+          var item = items[i];
+          console.log(item);
+          item.skills = item.skills.split(",");
+          console.log(item.skills);
+          for (var j = 0 ; j < item.skills.length; j++) {
+              var skills = item.skills[j];
+              skills = skills.replace(/(^\s+|\s+$)/g, '');
+              item.skills[j] = skills;
+          }
+          console.log(item);
+      }
+
       window.example_items = items;
 
       var settings = {
