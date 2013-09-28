@@ -9,6 +9,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         task_file = unicodecsv.DictReader(open(args[0]), encoding='utf-8')
+        return self._handle_task_file(task_file)
 
     def _handle_task_file(self, task_file):
         for task in task_file:
