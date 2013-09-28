@@ -46,7 +46,7 @@ Now you can install the dependencies::
 
 Now you can set up the database::
 
-  (new-mini-tasks)$ python manage.py syncdb --noinput
+  (new-mini-tasks)$ python manage.py syncdb --migrate --noinput
   Creating tables ...
   Creating table auth_permission
   Creating table auth_group_permissions
