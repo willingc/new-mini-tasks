@@ -142,9 +142,9 @@ tt
 
 <body>
     <div>
-	<p>To find a task, use the options in the four columns below to filter results by project name, skills needed, subject area of the project, or group type.  Clicking a filter will cause it to turn red, and you can see the results by scrolling down.  Clicking the filter again will turn it back to black, and remove the filter.</p>
-	<p>You can select multiple filters within a single columns, and the page will display all results which have either filter.  If you select filters from multiple columns, the page will display only those tasks which match BOTH filters selected.</p>
-	<p>Trouble understanding this documentation?  Just raise your hand and ask a mentor!</p>	 
+        <p>To find a task, use the options in the four columns below to filter results by project name, skills needed, subject area of the project, or group type.  Clicking a filter will cause it to turn red, and you can see the results by scrolling down.  Clicking the filter again will turn it back to black, and remove the filter.</p>
+        <p>You can select multiple filters within a single columns, and the page will display all results which have either filter.  If you select filters from multiple columns, the page will display only those tasks which match BOTH filters selected.</p>
+        <p>Trouble understanding this documentation?  Just raise your hand and ask a mentor!</p>         
     </div>
     <div id=facets></div>
     <div id=results></div>
@@ -166,10 +166,10 @@ tt
           '<% if (obj.language) {  %>, <%= obj.language %><% } %>' +
           '</p>' +
         '<p class="desc">(#<%= obj.item_id %>) ' +
-	  '<% if (obj.summary) {  %><%= obj.summary %><% } %>' +
-	  '</p>' +
-	'<p class="link"><a class="go" href="<%= obj.url %>">Info</a></p>' +
-	'</div>';
+          '<% if (obj.summary) {  %><%= obj.summary %><% } %>' +
+          '</p>' +
+        '<p class="link"><a class="go" href="<%= obj.url %>">Info</a></p>' +
+        '</div>';
 
       function csrfSafeMethod(method) {
           // these HTTP methods do not require CSRF protection
@@ -203,7 +203,8 @@ tt
                             'project'     : 'What Project',
                             'skills'    : 'What skills you need',
                             'suggested_mode': 'Best for group/individual',
-			    'project_area': 'Subject Area of Project'
+                            'env_difficulty': 'Environment setup difficulty',
+                            'project_area': 'Subject Area of Project'
         },
         resultSelector  : '#results',
         facetSelector   : '#facets',

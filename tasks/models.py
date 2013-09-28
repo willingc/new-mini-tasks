@@ -19,6 +19,7 @@ class Task(models.Model):
     description = models.CharField(max_length=255)
     suggested_for = models.CharField(max_length=255)
     closed = models.BooleanField(default=False)
+    env_difficulty = models.CharField(max_length=255, default='')
     suggested_mode = models.CharField(
         max_length=25,
         choices=MODE_CHOICES,
